@@ -7,6 +7,9 @@ const allowedCors = [
   'movie.murochkina.nomoredomains.xyz',
   'https://movie.murochkina.nomoredomains.xyz',
   'http://movie.murochkina.nomoredomains.xyz',
+  'api.movie.murochkina.nomoredomains.xyz',
+  'https://api.movie.murochkina.nomoredomains.xyz',
+  'http://api.movie.murochkina.nomoredomains.xyz',
 ];
 
 const errorMessages = {
