@@ -36,8 +36,9 @@ module.exports.createUser = (req, res, next) => {
     .catch((err) => {
       if (err.code === 11000) {
         next(new ConflictErrors(errorMessages.emailError));
+      } else {
+        next(err);
       }
-      next(err);
     });
 };
 

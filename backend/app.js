@@ -45,8 +45,8 @@ app.use('/', rateLimited);
 
 routes(app);
 
-app.use(errors());
 app.use(errorLogger);
+app.use(errors());
 app.use(CatcherError);
 
 app.listen(PORT, () => {
