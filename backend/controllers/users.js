@@ -5,6 +5,7 @@ const User = require('../models/user');
 
 const ConflictErrors = require('../errors/ConflictErrors');
 const NotFoundError = require('../errors/NotFoundError');
+const BadRequestError = require('../errors/BadRequestError');
 
 const { errorMessages } = require('../utils/constants');
 
@@ -34,7 +35,9 @@ module.exports.createUser = (req, res, next) => {
       });
     })
     .catch((err) => {
-      if (err.code === 11000) {
+      if (err.name === 'ValidationError') {
+        next(new BadRequestError(errorMessages.dataError));
+      } else if (err.code === 11000) {
         next(new ConflictErrors(errorMessages.emailError));
       } else {
         next(err);
